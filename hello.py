@@ -44,6 +44,10 @@ a=5
 id(a)
 # = même ID retourné par le script que si on faisait id(5)
 
+# Concaténer deux valeurs : il faut transformer les types pour qu'ils soient égaux
+a= "j'ai " + str(10) + "euros"
+b= str(10) + str(5) != str(10+5)
+
 # Python est un langage dynamique = on n'a pas besoin de lui dire le type de nos variables et fortement typé = on ne peut pas faire d'opération arithmétique sur des variables de types différents (à l'inverse de javascript qui est lui faiblement typé et convertit lui-même les variables pour faire les opérations, exemple 50 + "50" = "5050")
 
 # =============================================================
@@ -100,9 +104,11 @@ montuple = ("elen", "bats", 35)
 
 # =============================================================
 
-#! CONDITION SIMPLE (INDENTATION DES REPONSES : 2 espaces)
+#! STRUCTURES CONDITIONNELLES (INDENTATION DES REPONSES : 2 espaces)
 
 # =============================================================
+
+# On termine la ligne par le signe : et on va à la ligne avec indentation 2 (c'est le bloc-code de notre fonction) 
 
 if user_answer == "B":
     print("On continue le jeu")
@@ -113,6 +119,27 @@ else:
 
 # ELIF : c'est l'équivalent de else if en js ou elseif en PHP
 # PASS : quand aucune action n'est requise : on est obligé de déclarer une réponse à Python, même si c'est pour lui dire "ne fais rien" sinon ça provoque une erreur
+
+# Opérateur ternaire : 
+
+age = 20
+majeur = True if age>= 18 else False
+
+# Opérateurs logiques AND - OR - NOT (pour associer plusieurs conditions ensemble) : 
+
+if name == "elen" and age>= 35:
+    print("true and true donc ok")
+
+if name == "elen" or age>= 20:
+    print("un est true donc ok")
+
+# AND est prioritaire sur OR sauf si on spécifie les priorités : 
+
+if 5 > 2 and (5 < 10 or 5 > 15):
+    print("true and au moins un true donc ok")
+
+if not name == "elen":
+    print("on se connait ?")
 
 # =============================================================
 
@@ -180,6 +207,17 @@ b="10"
 b=int(b)
 print(a+b)
 
+# 7. Convertir un nombre en chaine de caractères : 
+a = str(10)
+
+# 8. Demander une valeur à l'utilisateur : 
+input("entrez un nombre :")
+
+# ==> Récupérer l'info 
+variable = input("entrez un nombre :")
+# ==> Afficher l'info
+print(variable)
+
 # =============================================================
 
 #! BOUCLES
@@ -199,28 +237,26 @@ for item in list:
 
 # =============================================================
 
-#! MODULES
+#! MODULES (voir fiche)
 
 # =============================================================
 
 # Il existe une infinité de modules natifs à Python qui exécutent différentes fonctions
 
-# ETAPE 1 : Importer un module en ligne de commande : import random (prenons l'exemple du module RANDOM)
+# ETAPE 1 : Importer un module en début de fichier : import random (exemple du module RANDOM)
 # ETAPE 2 : Utiliser le module : pour trouver un numéro au hasard entre deux valeurs définies : random.randint(x, y) ==> Donc nom du module.nom d'une fonction
 # EXEMPLE : import turtle ==> turtle est une librairie de dessin graphique de Python (donc on peut dessiner grâce à ce module)
 # EXEMPLE : import json ==> json (javascript objet notation), on crée un fichier .json et on crée une fonction qui permet de lire les éléments de ce fichier : 
 
-def read_value_from_json(): 
-   values = []
-with open('fichier.json') as f:
-  data = json.load(f)
-  for entry in data:
-    values.append(entry['mondico'])
-  return values
+# =============================================================
 
-# ==> ouvre un fichier json qui contient mes objets et charge les valeurs contenues dans mon fichier (f représente le fichier ouvert et peut être utilisé partout dans le programme)
+#! TYPES D'ERREUR :
 
-# ATTENTION : Il faut éviter de travailler avec plusieurs modules dans le même projet.
+# =============================================================
+
+#1. Erreur de syntaxe : oubli de ponctuation, d'indentation, casse, utilisations de mots réservés. L'interpréteur montre où il s'est arrêté dans le code avec un ^ et donne des indications sur l'erreur.
+#2. Erreur à l'exécution : variables non définies, méthodes appliquées à variables de mauvais types. Python indique de quel type est l'erreur
+#3. Erreur sémantique : dites "erreurs de logique" quand le script ne renvoie pas à ce qu'on avait planifié.Il existe des débuggeurs qui exécutent le script pas à pas afin qu'on suive le chemin de l'ordinateur.
 
 # =============================================================
 
