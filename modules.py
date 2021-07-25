@@ -1,5 +1,6 @@
 import random
 import os
+import pprint from pprint
 
 # =============================================================
 
@@ -23,6 +24,7 @@ r = random.randrange(0,101,10)
 chemin = "/Users/trinity/html/saison1/episode1"
 
 #3. On utilise la fonction join pour concaténer le nom du dossier à créer et le chemin (on peut ajouter en dernier paramètre avec les sous dossiers éventuels exemple ,"sous-dossier")
+# La fonction join gère automatiquement le slash, comme ça quel que soit le système d'exploitation, \ et / seront traités.
 dossier = os.path.join(chemin, "dossier")
 
 #4. On utilise la fonction makedir pour créer le dossier
@@ -51,5 +53,6 @@ print (dir(random))
 
 # =============================================================
 
-# On peut vérifier ce qui est appelable via la fonction : print(module.fonction()) ou pprint(callable(module.fonction()))
+# On peut vérifier ce qui est appelable via la fonction : print(module.fonction()) ou pprint(callable(module.fonction())) ==> On peut appeler les fonctions mais pas directement les modules : 
+os.makedirs() 
 

@@ -58,9 +58,11 @@ b= str(10) + str(5) != str(10+5)
 
 # Simple Array
 
+liste = []
 simplearray = ["elen", "bats", "monty", "python"]
 
 # En python, un tableau indexé est appelé une "liste" et son index est appelé "indice" (qui s'utilise comme une FILE = "first in, first out" ou comme une PILE = "first in, last out")
+#La liste est un objet mutable
 
 # =============================================================
 
@@ -78,21 +80,57 @@ mondico["prenom"]
 
 # 1. Renvoyer l'index d'une valeur :
 simplearray.index("elen")
-# 2. Ajouter un élément à la fin de la liste :
+# 2. Ajouter un/plusieurs élément(s) à la fin de la liste :
 simplearray.append("chocolat")
+simplearray.extend([10, 5, 18])
 # 3. Ajouter un élément à une position précise : 
 simplearray.insert("index", "valeur à insérer")
-# 4.Supprimer le dernier élément de la liste : 
-simplearray.pop()
+# 4.Supprimer un élément précis de la liste selon son index : 
+simplearray.pop("2")
 # 5.Supprimer le premier élément qui correspond à une certaine valeur : 
 simplearray.remove("valeur à supprimer")
+# 5B. Supprimer tous les éléments : 
+simplearray.clear()
+# 6 Chercher un élément dans une liste - les "slice" :
+
+simplearray[0:5]
+#- On pointe une tranche de la liste : on récupère les 5 premiers éléments de la liste
+print(simplearray[:])
+#- Pour récupérer tous les éléments
+print(simplearray[:-1])
+#- Pour récupérer tous les éléments sauf le dernier
+print(simplearray[2:])
+#- Pour récupérer les éléments à partir de l'élément 2
+print(simplearray[::2])
+#- Pour récupérer un élément sur 2
+print(simplearray[1:-2:2])
+#- Pour récupérer les éléments un élément sur 2, jusqu'au 4e element donc on récupère 2 et 4
+print(simplearray[::-1])
+#- Pour récupérer les éléments dans l'ordre inversé
+
+#7. Récupérer l'index d'un élément : 
+indexitem = simplearray.index("chocolat")
+#8. Compter les occurences de la liste :
+choco = simplearray.count("chocolat")
+#9. Trier la liste (la méthode trie mais revoie "none") : 
+simplearray.sort()
+#10. Trier la liste et renvoie la liste triée qui se fait enregistrer dans la variable "choco"
+choco = sorted(simplearray)
+#11. Inverser les éléments : 
+simplearray.reverse()
+
+#12. JOIN : Ajouter des éléments dans une liste pour l'affichage par exemple : 
+resultat = " ".join(simplearray)
+# On ajoute un espace vide entre chaque élément
+
+resultat = "\t".join(simplearray)
+# On affiche chaque élément à la ligne
 
 # Méthodes propres aux tableaux "dictionnaires"
 
 # 1. Mettre à jour 1,N valeurs (en paramètre, on insère la clé + la nouvelle valeur entre accolades) : 
 mondico.update({"prenom":"tata", "nom": "yoyo"})
-# 2. Pour supprimer une valeur : 
-mondico.pop("nom")
+
 
 # =============================================================
 
@@ -100,7 +138,7 @@ mondico.pop("nom")
 
 montuple = ("elen", "bats", 35)
 
-# En python, un tuple est un tableau ordonné et non modifiable
+# En python, un tuple est un tableau ordonné et non modifiable (immutable)
 
 # =============================================================
 
