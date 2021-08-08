@@ -262,17 +262,54 @@ print(variable)
 
 # =============================================================
 
-# WHILE : tant que la condition est remplie
+# WHILE : tant que la condition est remplie (danger : aboutir sur une boucle infinie, si on ne donne pas une condition de sortie)
 
 while user_answer != "B":
   print("essaie encore")
   user_answer = input("choisissez votre réponse")
+
+i = 0
+
+while i < 10000:
+  print("bonjour")
+  i += 1
+
+import time
+
+while True:
+  print("sauvegarde en cours")
+  time.sleep(600)
 
 # FOR : exécute chaque élément du tableau
 
 for item in list:
   item.capitalize()
 
+# 1. Instructions CONTINUE et BREAK pour sortir d'une boucle
+
+newListe = ["1", "4", "Paul", "3", "Pierre"]
+
+for element in newListe:
+  if element.isdigit():
+    continue
+  print(element)
+  # Va donc afficher Paul et Pierre
+
+for element in newListe:
+  if element.isdigit():
+    break
+  print(element)
+  # N'affichera rien car sortira de la boucle avant d'arriver à Paul
+
+# 2. Les compréhensions de listes (itérer sur des listes grâce à des structures conditionnelles, sur une même ligne)
+
+exempleList = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+
+nombres_positifs = []
+for i in exempleList:
+  if i > 0:
+    nombres_positifs.append(i)
+    
 # =============================================================
 
 #! MODULES (voir fiche)
