@@ -305,11 +305,21 @@ for element in newListe:
 
 exempleList = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
 
+# L'écriture supposée : 
+
 nombres_positifs = []
 for i in exempleList:
   if i > 0:
     nombres_positifs.append(i)
-    
+
+#  Devient : 
+
+nombres_positifs = [i for i in exempleList if i > 0]
+
+# Ou par exemple : 
+
+nombres_pairs = [i for i in exempleList if i % 2 == 0]
+
 # =============================================================
 
 #! MODULES (voir fiche)

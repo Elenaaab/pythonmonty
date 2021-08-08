@@ -4,7 +4,7 @@
 
 * Avant de commencer :
 
-* 1. Installer Python (hell thanks captain obvious !)
+* 1. Installer Python (thanks captain obvious !)
 * 2. Installer l'environnement de travail(un interpréteur)
 * 3. Lancer Python sur le terminal pour travailler : python3
 

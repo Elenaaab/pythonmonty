@@ -2,11 +2,26 @@
 #!         LES OBJETS
 #! ===========================
 
+# La POO permet de structurer son code autrement qu'en programmation procédurale. Comment écrit-on des classes en Python ? En Python, il n'y a pas besoin de prédéfinir les variables (et leur type) existant dans la classe.
+
+# On définit la classe via le mot CLASS, la classe prend une majuscule par convention et possède son constructeur __init__ (qui permet d'instancier des objets avec des valeurs initiales)
+
+class Rectangle:
+  width = 3
+  height = 2
+  def calcul_area(self):
+    return self.width * self.height
+
+class Carre:
+  def __init__(self, lenght, width, color="red"):
+    self.length = lenght
+    self.width = width
+    self.color = color
 
 # 1. Les objets STRING : 
 # ===========================
 
-#Il existe des centaines de méthodes en Python, l'important est de s'en savoir et de penser à aller chercher dans la doc, la méthode appropriée à ce qu'on cherche à faire dans un script
+# Il existe des centaines de méthodes en Python, l'important est de s'en savoir et de penser à aller chercher dans la doc, la méthode appropriée à ce qu'on cherche à faire dans un script
 
 #1. Changer la casse (upper, lower, capitalize, title - lettre maj à chaque mot) : 
 "Bonjour".upper()
