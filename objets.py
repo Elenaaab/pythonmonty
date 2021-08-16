@@ -4,7 +4,13 @@
 
 # La POO permet de structurer son code autrement qu'en programmation procédurale. Comment écrit-on des classes en Python ? En Python, il n'y a pas besoin de prédéfinir les variables (et leur type) existant dans la classe.
 
+# 1. CLASSE :
+# ===========================
+
 # On définit la classe via le mot CLASS, la classe prend une majuscule par convention et possède son constructeur __init__ (qui permet d'instancier des objets avec des valeurs initiales)
+
+from abc import abstractclassmethod
+
 
 class Rectangle:
   width = 3
@@ -18,7 +24,101 @@ class Carre:
     self.width = width
     self.color = color
 
-# 1. Les objets STRING : 
+# Instancier un objet à partir de la classe : 
+
+newRectangle = Rectangle(6,4)
+newCarre = Carre(4,4,color="blue")
+
+# Modifier un attribut : 
+
+newRectangle.width = 8
+newCarre.color = "yellow"
+
+# Il y a 3 types d'attributs : ceux d'instance, ceux de classe et ceux statiques.
+
+# 1. Attribut d'instance : relatives à l'instance, elles sont accessibles avec self et définies à l'instanciation dans le constructeur
+class Bird:
+  def __init__(self):
+    self.wings = 2
+
+bird = Bird()
+bird.wings
+bird.fly()
+
+# 2. Attribut de classe : définies directement dans le corps de la classe (accessibles via la classe sans passer par l'instanciation)
+
+class Bird:
+  names = ("mouette", "pigeon", "moineau")
+
+Bird.names
+
+# 3. Attribut statique : n'ont pratiquement aucun lien avec la classe (seules les méthodes peuvent être statiques) - à éviter en POO
+
+@staticmethod
+
+def show_bird():
+  "affiche le type d'oiseau"
+  return (
+    "moineau"
+  )
+
+# HERITAGE de classe
+
+# Une classe enfant copie les attributs de sa classe parent et peut réécrire les méthodes héritées (les modifier ou les surcharger):
+
+class classeEnfant(classeParent):
+  pass
+
+# En Python, l'héritage peut être multiple mais également dangereux, il existe d'autres manières plus intéressantes pour cela : 
+
+class classeEnfant(classeParent, autreClasseParent, EncoreUneAutreClasseParent):
+  pass
+
+# SURCHARGE de méthode
+
+# Action de modifier les méthodes des classes parentes (il faut garder les mêmes paramètres et le même nom)
+
+class Shape:
+  def area(self):
+    return 0
+
+class Carre(Shape):
+  def __init__(self, length):
+    self.length = length
+
+  def area(self):
+    return length * length
+
+# ABC "ABSTRACT BASE CLASS" : classe de base abstraite qui ne peut pas être instanciée (on doit donc créer une classe enfant pour s'en servir)
+
+# SUPER : réutiliser le corps de la méthode parente sans devoir la réécrire (plus besoin de définir self.name) : 
+
+class Film:
+  def __init__(self, name):
+      self.name = name
+  def watch(self, player):
+    print("bon visionnage")
+
+class FilmCassette(Film):
+  def __init__(self, name):
+      super().__init__(name)
+  def watch(self, player):
+    if player.type != "cassette":
+      print("le lecteur ne lit pas les cassettes")
+    else:
+      print("bon visionnage")
+
+# Hiérarchie d'héritage : 
+
+# Il existe de multiples niveaux d'héritage (parent, qui a un parent, qui a un parent, qui a un parent, ...)
+
+# L'héritage est un IS A = EST UN. On hérite du parent, des grands-parents, arrières-grands parents (principe fondamental de la POO)
+
+#A ne pas confondre avec l'héritage multiple qui veut dire qu'une classe a plusieurs parents et est à proscrire autant que possible (par exemple, cause de problème du diamant : quand deux parents ont un même modèle, duquel hérite l'enfant ?)
+
+
+
+# 2. Objet STRING : 
 # ===========================
 
 # Il existe des centaines de méthodes en Python, l'important est de s'en savoir et de penser à aller chercher dans la doc, la méthode appropriée à ce qu'on cherche à faire dans un script
@@ -78,6 +178,14 @@ class Carre:
 #true
 "image.png".startswith("image")
 #true
+
+# 3. Objet dans une COLLECTION : 
+# ===========================
+
+# Duck Typing : "si ça ressemble à un canard, alors c'est probablement un canard"
+# - Les clés des dictionnaires doivent être immutables
+# - Rédigez des docstrings
+# - Typer votre code
 
 # ===========================
 # LES OPERATEURS

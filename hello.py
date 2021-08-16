@@ -274,12 +274,6 @@ while i < 10000:
   print("bonjour")
   i += 1
 
-import time
-
-while True:
-  print("sauvegarde en cours")
-  time.sleep(600)
-
 # FOR : exécute chaque élément du tableau
 
 for item in list:

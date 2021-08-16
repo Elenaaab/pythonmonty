@@ -1,7 +1,6 @@
 import random
 import os
-import pprint from pprint
-
+from pprint import pprint
 # =============================================================
 
 #! MODULES
